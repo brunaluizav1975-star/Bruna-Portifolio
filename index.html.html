@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bruna Luiza Vieira — Criadora de Soluções Digitais</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;--bg2:#111;--bg3:#161616;--bg4:#1a1a1a;
+  --text:#f0ede8;--muted:#777;--muted2:#555;
+  --accent:#c8f5a0;--accent2:#a8e87c;--accent3:rgba(200,245,160,0.08);
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.11);
+  --card:#131313;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;letter-spacing:-0.5px;color:var(--text)}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--accent);color:#0a0a0a;padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s}
+.nav-cta:hover{background:var(--accent2)}
+
+/* SECTIONS */
+section{padding:110px 48px}
+.container{max-width:1080px;margin:0 auto}
+.section-label{font-size:11px;color:var(--accent);font-weight:500;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px}
+h2{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(26px,3vw,38px);letter-spacing:-1px;line-height:1.1;margin-bottom:24px}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(200,245,160,0.035) 0%,transparent 65%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:72px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--accent3);border:1px solid rgba(200,245,160,0.18);color:var(--accent);font-size:11px;font-weight:500;padding:5px 14px;border-radius:100px;margin-bottom:24px;letter-spacing:0.8px;text-transform:uppercase}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
+.hero-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(40px,4.5vw,62px);line-height:1.0;letter-spacing:-2.5px;margin-bottom:6px;color:var(--text)}
+.hero-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(22px,2.5vw,34px);letter-spacing:-1px;color:var(--accent);margin-bottom:20px;display:block;opacity:0.9}
+.hero-desc{font-size:14px;color:var(--muted);max-width:400px;margin-bottom:10px;line-height:1.75;font-weight:300}
+.hero-role{font-size:13px;color:rgba(200,245,160,0.55);margin-bottom:32px;font-weight:400;font-style:italic}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#0a0a0a;padding:13px 26px;border-radius:100px;font-weight:600;font-size:13px;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);padding:13px 26px;border-radius:100px;font-weight:400;font-size:13px;text-decoration:none;transition:all 0.2s;border:1px solid var(--border2)}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.25)}
+.hero-contacts{display:flex;gap:20px;flex-wrap:wrap}
+.hero-contact-item{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.hero-contact-item a{color:var(--muted);text-decoration:none;transition:color 0.2s}
+.hero-contact-item a:hover{color:var(--accent)}
+
+/* HERO CARD */
+.hero-card{background:var(--bg3);border:1px solid var(--border2);border-radius:22px;padding:26px;position:relative;overflow:hidden}
+.card-top{display:flex;align-items:center;gap:12px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,rgba(200,245,160,0.25),rgba(200,245,160,0.06));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--accent);border:1px solid rgba(200,245,160,0.25);flex-shrink:0}
+.card-info-name{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;letter-spacing:-0.3px;color:var(--text)}
+.card-info-role{font-size:11px;color:var(--muted);margin-top:1px}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.stat{background:var(--bg2);border-radius:10px;padding:12px 8px;text-align:center;border:1px solid var(--border)}
+.stat-num{font-family:'Syne',sans-serif;font-weight:700;font-size:20px;color:var(--accent)}
+.stat-label{font-size:10px;color:var(--muted);margin-top:2px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{background:rgba(255,255,255,0.03);border:1px solid var(--border);color:var(--muted);font-size:10px;padding:4px 10px;border-radius:100px}
+.tag.g{background:var(--accent3);border-color:rgba(200,245,160,0.18);color:rgba(200,245,160,0.85)}
+
+/* SOBRE */
+#sobre{background:var(--bg2)}
+.sobre-grid{display:grid;grid-template-columns:1fr 1.8fr;gap:72px;align-items:start}
+.sobre-sticky{position:sticky;top:100px}
+.sobre-text p{color:var(--muted);line-height:1.85;font-size:14px;margin-bottom:16px;font-weight:300}
+.sobre-text p strong{color:rgba(240,237,232,0.85);font-weight:500}
+.sobre-text p em{color:rgba(200,245,160,0.7);font-style:normal}
+.diferencial-box{background:var(--bg3);border:1px solid rgba(200,245,160,0.12);border-radius:14px;padding:20px;margin-top:24px}
+.diferencial-box p{font-size:13px;color:rgba(200,245,160,0.65);line-height:1.7;margin:0;font-style:italic}
+.idioma-row{display:flex;align-items:center;gap:10px;margin-top:16px;flex-wrap:wrap}
+.idioma-badge{background:rgba(200,245,160,0.06);border:1px solid rgba(200,245,160,0.15);color:rgba(200,245,160,0.7);font-size:11px;padding:5px 12px;border-radius:100px}
+.idioma-desc{font-size:12px;color:var(--muted2)}
+.skills-section{margin-top:32px}
+.skills-group{margin-bottom:20px}
+.skills-group-title{font-size:11px;color:var(--muted2);font-weight:500;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.skills-pills{display:flex;flex-wrap:wrap;gap:6px}
+.skill-pill{background:var(--bg4);border:1px solid var(--border);color:var(--muted);font-size:11px;padding:5px 12px;border-radius:100px}
+
+/* EXPERIÊNCIA */
+#experiencia{background:var(--bg)}
+.exp-list{display:flex;flex-direction:column;gap:8px}
+.exp-item{border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color 0.3s;cursor:pointer;background:var(--card)}
+.exp-item:hover{border-color:var(--border2)}
+.exp-header{padding:22px 26px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.exp-left{display:flex;align-items:flex-start;gap:14px;flex:1}
+.exp-icon{width:40px;height:40px;border-radius:10px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;margin-top:2px}
+.exp-company{font-family:'Syne',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.3px;margin-bottom:3px;color:var(--text)}
+.exp-role{font-size:13px;color:var(--muted);margin-bottom:4px}
+.exp-period{font-size:11px;color:var(--muted2)}
+.exp-badge{background:var(--accent3);border:1px solid rgba(200,245,160,0.15);color:rgba(200,245,160,0.75);font-size:10px;font-weight:500;padding:4px 10px;border-radius:100px;white-space:nowrap;height:fit-content;letter-spacing:0.5px;flex-shrink:0}
+.exp-arrow{font-size:12px;color:var(--muted2);transition:transform 0.2s;flex-shrink:0;margin-top:4px}
+.exp-item.open .exp-arrow{transform:rotate(180deg)}
+.exp-body{padding:0 26px 22px 80px;display:none}
+.exp-body.open{display:block}
+.exp-desc{color:var(--muted);font-size:13px;line-height:1.75;font-weight:300;margin-bottom:14px}
+.exp-highlights{display:flex;flex-direction:column;gap:7px}
+.exp-highlight{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--muted)}
+.exp-highlight::before{content:'→';color:var(--accent);font-size:11px;margin-top:2px;flex-shrink:0}
+
+/* PROJETOS */
+#projetos{background:var(--bg2)}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:26px;transition:all 0.3s;cursor:default;position:relative;overflow:hidden}
+.proj-card:hover{border-color:rgba(200,245,160,0.2);transform:translateY(-2px)}
+.proj-card.wide{grid-column:span 2}
+.proj-num{font-size:10px;color:var(--muted2);font-weight:500;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.proj-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;letter-spacing:-0.4px;margin-bottom:8px;color:var(--text)}
+.proj-desc{color:var(--muted);font-size:13px;line-height:1.7;font-weight:300;margin-bottom:14px}
+.proj-status{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:500;padding:4px 10px;border-radius:100px;margin-bottom:12px;letter-spacing:0.5px}
+.proj-status.live{background:rgba(200,245,160,0.08);border:1px solid rgba(200,245,160,0.2);color:rgba(200,245,160,0.8)}
+.proj-status.dev{background:rgba(255,165,0,0.06);border:1px solid rgba(255,165,0,0.15);color:rgba(255,165,0,0.7)}
+.proj-status-dot{width:5px;height:5px;border-radius:50%}
+.proj-status.live .proj-status-dot{background:var(--accent)}
+.proj-status.dev .proj-status-dot{background:rgba(255,165,0,0.8);animation:pulse 2s infinite}
+.proj-techs{display:flex;flex-wrap:wrap;gap:6px}
+.proj-tech{background:rgba(255,255,255,0.03);border:1px solid var(--border);color:var(--muted2);font-size:10px;padding:3px 10px;border-radius:100px}
+
+/* CERTIFICAÇÕES */
+#certs{background:var(--bg)}
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;transition:border-color 0.2s}
+.cert-card:hover{border-color:var(--border2)}
+.cert-icon{font-size:22px;margin-bottom:10px}
+.cert-name{font-size:13px;font-weight:400;color:var(--text);line-height:1.4}
+.formacao-box{background:var(--bg3);border:1px solid rgba(200,245,160,0.12);border-radius:14px;padding:22px 26px;margin-bottom:36px;display:flex;align-items:center;gap:16px}
+.formacao-icon{font-size:28px}
+.formacao-inst{font-family:'Syne',sans-serif;font-weight:600;font-size:15px;color:var(--text);margin-bottom:3px}
+.formacao-curso{font-size:13px;color:var(--muted)}
+.formacao-status{font-size:11px;color:rgba(200,245,160,0.6);margin-top:4px}
+
+/* SERVIÇOS */
+#servicos{background:var(--bg2)}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px;transition:all 0.3s;position:relative}
+.service-card:hover{border-color:rgba(200,245,160,0.2)}
+.service-icon{width:44px;height:44px;border-radius:11px;background:var(--accent3);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:20px;border:1px solid rgba(200,245,160,0.1)}
+.service-card h3{font-family:'Syne',sans-serif;font-weight:600;font-size:15px;margin-bottom:8px;letter-spacing:-0.3px;color:var(--text)}
+.service-card p{color:var(--muted);font-size:13px;line-height:1.7;font-weight:300}
+.service-num{position:absolute;top:20px;right:20px;font-family:'Syne',sans-serif;font-size:10px;color:rgba(255,255,255,0.05);font-weight:700;letter-spacing:1px}
+
+/* CONTATO */
+#contato{background:var(--bg)}
+.contato-inner{background:var(--bg3);border:1px solid var(--border2);border-radius:24px;padding:56px;position:relative;overflow:hidden;text-align:center}
+.contato-inner::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(200,245,160,0.04),transparent 65%);pointer-events:none}
+.contato-inner h2{font-size:clamp(28px,4vw,46px);margin-bottom:12px}
+.contato-inner .sub{color:var(--muted);margin-bottom:36px;font-size:14px;font-weight:300;font-style:italic}
+.contato-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:600px;margin:0 auto}
+.contact-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:16px 20px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:all 0.2s}
+.contact-card:hover{border-color:rgba(200,245,160,0.2)}
+.contact-icon{width:36px;height:36px;border-radius:9px;background:var(--accent3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.contact-label{font-size:10px;color:var(--muted2);margin-bottom:2px;text-transform:uppercase;letter-spacing:0.8px}
+.contact-value{font-size:12px;color:var(--text);font-weight:400;text-align:left}
+
+footer{padding:22px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.footer-text{font-size:11px;color:rgba(255,255,255,0.18)}
+
+@media(max-width:800px){
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  section{padding:72px 20px}
+  .hero-grid,.sobre-grid,.proj-grid,.services-grid,.contato-grid,.certs-grid{grid-template-columns:1fr}
+  .proj-card.wide{grid-column:span 1}
+  .hero-visual{display:none}
+  .exp-body.open{padding:0 16px 18px 16px}
+  footer{flex-direction:column;gap:6px;padding:16px 20px;text-align:center}
+  .sobre-sticky{position:static}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Bruna<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#certs">Formação</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+  </ul>
+  <a href="#contato" class="nav-cta">Fale comigo</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag"><span class="dot"></span> Disponível para projetos</div>
+        <div class="hero-title">Criadora de<br>Soluções Digitais</div>
+        <span class="hero-name">Bruna Luiza Vieira</span>
+        <p class="hero-desc">Transformando ideias em sistemas organizados e funcionais.</p>
+        <p class="hero-role">Administração · Tecnologia · Gestão de Projetos · Branding</p>
+        <div class="hero-btns">
+          <a href="#projetos" class="btn-primary">Ver projetos →</a>
+          <a href="#sobre" class="btn-ghost">Sobre mim</a>
+        </div>
+        <div class="hero-contacts">
+          <span class="hero-contact-item">✉ <a href="mailto:brunaluzav1975@gmail.com">brunaluzav1975@gmail.com</a></span>
+          <span class="hero-contact-item">📞 <a href="tel:+5561994462959">(61) 9 9446-2959</a></span>
+          <span class="hero-contact-item">🔗 <a href="https://linkedin.com/in/bruna-vieira" target="_blank">LinkedIn</a></span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="card-top">
+            <div class="avatar">BL</div>
+            <div>
+              <div class="card-info-name">Bruna Luiza Vieira</div>
+              <div class="card-info-role">Adm. em formação · UFBRA · Brasília, DF</div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Projetos</div></div>
+            <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Anos exp.</div></div>
+            <div class="stat"><div class="stat-num">IA</div><div class="stat-label">Integrada</div></div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag g">Sistemas Digitais</span>
+            <span class="tag g">IA aplicada</span>
+            <span class="tag g">Branding</span>
+            <span class="tag">Gestão</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Notion</span>
+            <span class="tag">Canva</span>
+            <span class="tag">Replit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-sticky">
+        <div class="section-label">Sobre</div>
+        <h2>Quem é<br>a Bruna</h2>
+        <div class="diferencial-box">
+          <p>"Desenvolvimento de projetos próprios integrando administração, tecnologia e marketing, com foco em criação de soluções reais e aplicação prática de conhecimento."</p>
+        </div>
+        <div class="idioma-row">
+          <span class="idioma-badge">🌍 Inglês A2</span>
+          <span class="idioma-desc">Leitura técnica e termos digitais</span>
+        </div>
+      </div>
+      <div>
+        <div class="sobre-text">
+          <p>Profissional em formação em <strong>Administração pela UFBRA</strong>, com experiência real em rotinas administrativas, atendimento ao cliente e vendas consultivas.</p>
+          <p>Atua na interseção entre <strong>criatividade, sistemas e estratégia</strong> — criando soluções digitais e estruturando projetos com apoio de inteligência artificial desde a concepção até a entrega.</p>
+          <p>Perfil <em>proativo, estratégico e orientado à execução</em>, com interesse em integrar administração, tecnologia e marketing em projetos que geram impacto real.</p>
+        </div>
+        <div class="skills-section">
+          <div class="skills-group">
+            <div class="skills-group-title">Técnicas</div>
+            <div class="skills-pills">
+              <span class="skill-pill">Excel intermediário</span>
+              <span class="skill-pill">Controle de estoque</span>
+              <span class="skill-pill">Rotinas administrativas</span>
+              <span class="skill-pill">Notion</span>
+              <span class="skill-pill">Canva</span>
+              <span class="skill-pill">Replit</span>
+              <span class="skill-pill">Inteligência Artificial</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <div class="skills-group-title">Estratégicas</div>
+            <div class="skills-pills">
+              <span class="skill-pill">Planejamento estratégico</span>
+              <span class="skill-pill">Organização de processos</span>
+              <span class="skill-pill">Estruturação de projetos</span>
+              <span class="skill-pill">Análise de métricas</span>
+              <span class="skill-pill">Branding & posicionamento</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <div class="skills-group-title">Comportamentais</div>
+            <div class="skills-pills">
+              <span class="skill-pill">Comunicação</span>
+              <span class="skill-pill">Proatividade</span>
+              <span class="skill-pill">Criatividade</span>
+              <span class="skill-pill">Liderança</span>
+              <span class="skill-pill">Trabalho em equipe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIÊNCIA -->
+<section id="experiencia">
+  <div class="container">
+    <div class="section-label">Trajetória</div>
+    <h2>Experiência Profissional</h2>
+    <div class="exp-list">
+
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-header">
+          <div class="exp-left">
+            <div class="exp-icon">🏢</div>
+            <div>
+              <div class="exp-company">C&A Modas</div>
+              <div class="exp-role">Operadora de Caixa & Vendas Financeiras</div>
+              <div class="exp-period">2024 – 2025</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="exp-badge">Varejo · Finanças</div>
+            <div class="exp-arrow">▾</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-desc">Atendimento ao cliente no ponto de venda com operação de caixa, controle financeiro e venda de produtos financeiros — cartões, seguros e parcelamentos.</div>
+          <div class="exp-highlights">
+            <div class="exp-highlight">Reconhecida como potencial de caixa pela liderança</div>
+            <div class="exp-highlight">Responsável pelo treinamento de novos colaboradores</div>
+            <div class="exp-highlight">Participação ativa em metas e estratégias de vendas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-header">
+          <div class="exp-left">
+            <div class="exp-icon">🥤</div>
+            <div>
+              <div class="exp-company">Açaí Artesanal</div>
+              <div class="exp-role">Atendente, Operadora de Caixa & Apoio à Gestão</div>
+              <div class="exp-period">2024</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="exp-badge">Gestão · Operações</div>
+            <div class="exp-arrow">▾</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-desc">Atuação multifuncional cobrindo atendimento, caixa, controle de estoque e suporte direto à gestão operacional do negócio.</div>
+          <div class="exp-highlights">
+            <div class="exp-highlight">Treinamento de novos funcionários e integração de processos</div>
+            <div class="exp-highlight">Participação na organização de processos internos</div>
+            <div class="exp-highlight">Suporte estratégico direto à operação do negócio</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-header">
+          <div class="exp-left">
+            <div class="exp-icon">🏛</div>
+            <div>
+              <div class="exp-company">Brasília Shopping</div>
+              <div class="exp-role">Jovem Aprendiz Administrativo</div>
+              <div class="exp-period">2021 – 2023</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="exp-badge">Administrativo</div>
+            <div class="exp-arrow">▾</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-desc">Início da trajetória profissional com apoio em rotinas administrativas, controle de estoque, atendimento e suporte operacional em ambiente corporativo.</div>
+          <div class="exp-highlights">
+            <div class="exp-highlight">Controle de estoque e organização de documentos</div>
+            <div class="exp-highlight">Atendimento ao cliente e suporte às equipes</div>
+            <div class="exp-highlight">Base sólida para desenvolvimento de habilidades administrativas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-header">
+          <div class="exp-left">
+            <div class="exp-icon">🧠</div>
+            <div>
+              <div class="exp-company">Lezzy Lab</div>
+              <div class="exp-role">Fundadora — Branding & Estratégia Digital</div>
+              <div class="exp-period">2024 – atual</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="exp-badge">Fundadora · Branding</div>
+            <div class="exp-arrow">▾</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-desc">Criação e liderança de estúdio de branding e estratégia digital para microempreendedores — da identidade visual ao posicionamento completo de marca.</div>
+          <div class="exp-highlights">
+            <div class="exp-highlight">Criação de identidade visual e posicionamento para MEIs</div>
+            <div class="exp-highlight">Gestão de conteúdo, copywriting e análise de métricas</div>
+            <div class="exp-highlight">Contratos, onboarding, diagnóstico estratégico e campanhas digitais</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-header">
+          <div class="exp-left">
+            <div class="exp-icon">🏛</div>
+            <div>
+              <div class="exp-company">SIMUN'PE</div>
+              <div class="exp-role">Administração & Marketing</div>
+              <div class="exp-period">2023 – atual</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="exp-badge">Institucional</div>
+            <div class="exp-arrow">▾</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-desc">Organização de processos internos, suporte à diretoria e criação de estratégias de divulgação para fortalecimento de marca da organização.</div>
+          <div class="exp-highlights">
+            <div class="exp-highlight">Suporte direto à diretoria e gestão de demandas operacionais</div>
+            <div class="exp-highlight">Criação de materiais e comunicação institucional</div>
+            <div class="exp-highlight">Estratégias de divulgação e fortalecimento de marca</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-header">
+          <div class="exp-left">
+            <div class="exp-icon">🌍</div>
+            <div>
+              <div class="exp-company">Sonder Impacto</div>
+              <div class="exp-role">Fundadora & Gestora de Projetos Sociais</div>
+              <div class="exp-period">2022 – atual</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="exp-badge">Social · Liderança</div>
+            <div class="exp-arrow">▾</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-desc">Criação e liderança de projeto social com gestão de voluntários, planejamento estratégico e organização de eventos e campanhas de impacto social.</div>
+          <div class="exp-highlights">
+            <div class="exp-highlight">Fundação e liderança de iniciativa social ativa desde 2022</div>
+            <div class="exp-highlight">Gestão de voluntários e coordenação de ações sociais</div>
+            <div class="exp-highlight">Planejamento estratégico, comunicação e eventos</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJETOS -->
+<section id="projetos">
+  <div class="container">
+    <div class="section-label">Portfólio</div>
+    <h2>Projetos Autorais</h2>
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-num">Projeto 01</div>
+        <div class="proj-status live"><span class="proj-status-dot"></span> Concluído</div>
+        <h3>Sistema Financeiro</h3>
+        <p class="proj-desc">Planilha estruturada para controle financeiro pessoal e empresarial — categorização, relatórios visuais e acompanhamento de metas.</p>
+        <div class="proj-techs">
+          <span class="proj-tech">Excel Avançado</span>
+          <span class="proj-tech">Fórmulas Dinâmicas</span>
+          <span class="proj-tech">Visualização de Dados</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-num">Projeto 02</div>
+        <div class="proj-status dev"><span class="proj-status-dot"></span> Em desenvolvimento</div>
+        <h3>Astra — Gerenciador</h3>
+        <p class="proj-desc">Plataforma de produtividade com dashboard centralizado, gestão de tarefas, metas e IA integrada para análise de performance diária.</p>
+        <div class="proj-techs">
+          <span class="proj-tech">Dashboard</span>
+          <span class="proj-tech">IA Integrada</span>
+          <span class="proj-tech">Replit</span>
+          <span class="proj-tech">Notion</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-num">Projeto 03</div>
+        <div class="proj-status dev"><span class="proj-status-dot"></span> Em desenvolvimento</div>
+        <h3>Cardápio Digital</h3>
+        <p class="proj-desc">Menu digital interativo para estabelecimentos — responsivo, categorizado, com identidade visual personalizada e otimizado para mobile.</p>
+        <div class="proj-techs">
+          <span class="proj-tech">HTML/CSS</span>
+          <span class="proj-tech">Design Responsivo</span>
+          <span class="proj-tech">Mobile First</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-num">Projeto 04</div>
+        <div class="proj-status live"><span class="proj-status-dot"></span> Concluído</div>
+        <h3>Sites: Axion & Lezzy</h3>
+        <p class="proj-desc">Desenvolvimento de sites institucionais e de branding para projetos próprios — identidade visual, copywriting e estratégia digital integrados.</p>
+        <div class="proj-techs">
+          <span class="proj-tech">Desenvolvimento Web</span>
+          <span class="proj-tech">Branding</span>
+          <span class="proj-tech">Canva</span>
+        </div>
+      </div>
+
+      <div class="proj-card wide">
+        <div class="proj-num">Projeto 05 · Destaque</div>
+        <div class="proj-status live"><span class="proj-status-dot"></span> Ativo desde 2024</div>
+        <h3>Lezzy Lab — Estúdio de Branding Digital</h3>
+        <p class="proj-desc">Projeto autoral de maior escala: estúdio completo de branding e estratégia digital para microempreendedores. Cobre diagnóstico, identidade visual, contratos, onboarding, gestão de conteúdo, copywriting, análise de métricas e campanhas digitais — do início ao fim.</p>
+        <div class="proj-techs">
+          <span class="proj-tech">Branding</span>
+          <span class="proj-tech">Estratégia Digital</span>
+          <span class="proj-tech">Copywriting</span>
+          <span class="proj-tech">Gestão de Conteúdo</span>
+          <span class="proj-tech">Métricas & Analytics</span>
+          <span class="proj-tech">Canva</span>
+          <span class="proj-tech">Onboarding</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICAÇÕES -->
+<section id="certs">
+  <div class="container">
+    <div class="section-label">Formação</div>
+    <h2>Educação & Certificações</h2>
+    <div class="formacao-box">
+      <div class="formacao-icon">🎓</div>
+      <div>
+        <div class="formacao-inst">UFBRA — Universidade de Brasília</div>
+        <div class="formacao-curso">Bacharelado em Administração</div>
+        <div class="formacao-status">Em andamento</div>
+      </div>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-icon">📁</div><div class="cert-name">Gestão de Documentos e Arquivamento</div></div>
+      <div class="cert-card"><div class="cert-icon">🚚</div><div class="cert-name">Logística</div></div>
+      <div class="cert-card"><div class="cert-icon">🏢</div><div class="cert-name">Administração Profissionalizante</div></div>
+      <div class="cert-card"><div class="cert-icon">🤖</div><div class="cert-name">Inteligência Artificial Aplicada — GitHub</div></div>
+      <div class="cert-card"><div class="cert-icon">📊</div><div class="cert-name">Excel</div></div>
+      <div class="cert-card"><div class="cert-icon">📦</div><div class="cert-name">Gestão de Estoque</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="container">
+    <div class="section-label">O que ofereço</div>
+    <h2>Áreas de Atuação</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-icon">📋</div>
+        <h3>Organização de Projetos</h3>
+        <p>Estruturação de fluxos, processos e documentação. Transformo caos em sistemas claros e replicáveis com metodologia prática.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon">⚙️</div>
+        <h3>Desenvolvimento de Sistemas</h3>
+        <p>Criação de sistemas digitais funcionais — dashboards, planilhas avançadas e ferramentas de gestão com lógica e interface.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon">🤖</div>
+        <h3>Soluções com IA</h3>
+        <p>Aplicação prática de inteligência artificial para automação, análise e criação de experiências mais eficientes e inteligentes.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-icon">🎨</div>
+        <h3>Branding & Estratégia Digital</h3>
+        <p>Identidade visual, posicionamento, copywriting e presença digital para microempreendedores. Do conceito à execução.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="container">
+    <div class="contato-inner">
+      <div class="section-label" style="text-align:center">Contato</div>
+      <h2>Vamos construir<br>algo juntos?</h2>
+      <p class="sub">Se você tem um problema, a Bruna tem um sistema.</p>
+      <div class="contato-grid">
+        <a href="mailto:brunaluzav1975@gmail.com" class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <div><div class="contact-label">E-mail</div><div class="contact-value">brunaluzav1975@gmail.com</div></div>
+        </a>
+        <a href="tel:+5561994462959" class="contact-card">
+          <div class="contact-icon">📞</div>
+          <div><div class="contact-label">Telefone</div><div class="contact-value">(61) 9 9446-2959</div></div>
+        </a>
+        <a href="https://linkedin.com/in/bruna-vieira" target="_blank" class="contact-card">
+          <div class="contact-icon">💼</div>
+          <div><div class="contact-label">LinkedIn</div><div class="contact-value">linkedin.com/in/bruna-vieira</div></div>
+        </a>
+        <div class="contact-card">
+          <div class="contact-icon">📍</div>
+          <div><div class="contact-label">Localização</div><div class="contact-value">Brasília, DF — Brasil</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-text">© 2025 · Bruna Luiza Vieira — Criadora de Soluções Digitais</div>
+  <div class="footer-text">Brasília, DF · Brasil</div>
+</footer>
+
+<script>
+function toggleExp(el){
+  el.classList.toggle('open');
+  const body = el.querySelector('.exp-body');
+  body.classList.toggle('open');
+}
+</script>
+</body>
+</html>
